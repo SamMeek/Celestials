@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Celestials Events</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Star Background */
+            body {
+                background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            }
+
+            .stars {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle var(--duration) ease-in-out infinite;
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            /* Animations */
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+
+            .nav-link {
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: white;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .floating {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .event-card {
+                transition: all 0.3s ease;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .event-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            }
+        </style>
+    </head>
+
+    <body class="min-h-screen">
+        <div class="stars" id="stars"></div>
+
+        <nav class="fixed w-full bg-black/30 backdrop-blur-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <img src="./Celestialslogo.png" alt="Celestials Logo"
+                        class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+
+                    <!-- Desktop Navigation Only -->
+                    <div class="flex space-x-8">
+                        <a href="./index.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-home mr-2"></i>
+                        </a>
+                        <a href="./members.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-users mr-2"></i>
+
+                        </a>
+                        <a href="./achievements.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-trophy mr-2"></i>
+
+                        </a>
+                        <a href="./shop.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="pt-32 pb-20 px-6 relative z-10">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in">
+                    Upcoming <span class="text-yellow-400">Events</span>
+                </h2>
+
+                <!-- Events Container -->
+                <div class="max-w-4xl mx-auto space-y-8">
+                    <div
+                        class="event-card fade-in bg-yellow-400/10 p-6 rounded-xl border border-yellow-400/30 relative">
+                        <div class="absolute top-4 right-4 bg-red-500 text-white px-3 py-1 rounded-full text-sm">
+                            LIVE NOW
+                        </div>
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-400/20 p-2 rounded-lg mr-4">
+                                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                                    </path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-gray-400">Ongoing</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Sea King Raid</h3>
+                        <p class="text-gray-300 mb-4">Join the ongoing battle against the Legendary Sea King!</p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <div class="bg-white/5 p-3 rounded-lg">
+                                <span class="text-yellow-400 font-mono" id="liveTimer">00:00:00</span>
+                            </div>
+                            <button
+                                class="px-6 py-2 bg-red-500 text-white rounded-lg hover:bg-red-400 transition-colors">
+                                Join Battle →
+                            </button>
+                        </div>
+                    </div>
+                    <div class="event-card fade-in bg-white/5 p-6 rounded-xl border border-white/10">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-yellow-400/20 p-2 rounded-lg mr-4">
+                                <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-gray-400">Starts in <span id="countdown"
+                                    class="font-medium"></span></span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Weekly Crew Tournament</h3>
+                        <p class="text-gray-300 mb-4">3v3 elimination tournament with rare rewards</p>
+                        <div class="flex flex-wrap gap-4 items-center">
+                            <div class="bg-white/5 p-3 rounded-lg">
+                                <span class="text-yellow-400 font-mono">Sat, 24 June 8:00 PM EST</span>
+                            </div>
+                            <button
+                                class="px-6 py-2 bg-yellow-400 text-purple-900 rounded-lg hover:bg-yellow-300 transition-colors rsvp-button">
+                                RSVP Now
+                            </button>
+                            <span class="text-sm text-gray-400 rsvp-count">45 crew members attending</span>
+                        </div>
+                    </div>
+                    <!-- <div class="event-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 opacity-70">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-gray-600/20 p-2 rounded-lg mr-4">
+                                <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor"
+                                    viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M5 13l4 4L19 7"></path>
+                                </svg>
+                            </div>
+                            <span class="text-sm text-gray-500">Completed</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-400 mb-2">Island Defense Drill</h3>
+                        <p class="text-gray-500 mb-4">Completed on June 12, 2023</p>
+                        <div class="text-gray-500 text-sm">
+                            127 participants • Average score: 84.5
+                        </div>
+                    </div> -->
+                </div>
+
+                <!-- <h1 class="flex items-center justify-center text-3xl text-white">
+                    No Events Yet!
+                </h1> -->
+
+                <a href="./registration.htm" class="flex items-center justify-center h-screen">
+                    <button>Register Now</button>
+                </a>
+            </div>
+        </main>
+
+        <script>
+            // Star Generation
+            function createStars() {
+                const starsContainer = document.getElementById('stars');
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+                    starsContainer.appendChild(star);
+                }
+            }
+            createStars();
+
+            // Live Timer
+            function updateLiveTimer() {
+                const timer = document.getElementById('liveTimer');
+                let seconds = 0;
+
+                setInterval(() => {
+                    seconds++;
+                    const hours = Math.floor(seconds / 3600);
+                    const minutes = Math.floor((seconds % 3600) / 60);
+                    const secs = seconds % 60;
+                    timer.textContent =
+                        `${String(hours).padStart(2, '0')}:` +
+                        `${String(minutes).padStart(2, '0')}:` +
+                        `${String(secs).padStart(2, '0')}`;
+                }, 1000);
+            }
+            updateLiveTimer();
+
+            // Countdown Timer
+            const eventDate = new Date('2023-06-24T20:00:00-05:00').getTime();
+
+            function updateCountdown() {
+                const now = new Date().getTime();
+                const distance = eventDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+                document.getElementById('countdown').textContent =
+                    `${days}d ${hours}h ${minutes}m`;
+            }
+            setInterval(updateCountdown, 1000);
+            updateCountdown();
+
+            // RSVP Functionality
+            document.querySelectorAll('.rsvp-button').forEach(button => {
+                button.addEventListener('click', function () {
+                    const isRSVPd = this.classList.contains('bg-purple-500');
+
+                    if (!isRSVPd) {
+                        this.classList.remove('bg-yellow-400', 'hover:bg-yellow-300');
+                        this.classList.add('bg-purple-500', 'hover:bg-purple-400');
+                        this.textContent = 'RSVP Confirmed ✓';
+
+                        const countElement = this.nextElementSibling;
+                        const currentCount = parseInt(countElement.textContent);
+                        countElement.textContent = `${currentCount + 1} crew members attending`;
+
+                        // Store RSVP in localStorage
+                        localStorage.setItem('event-rsvp', 'true');
+                    }
+                });
+            });
+
+            // Check existing RSVPs
+            if (localStorage.getItem('event-rsvp')) {
+                document.querySelectorAll('.rsvp-button').forEach(button => {
+                    button.classList.remove('bg-yellow-400', 'hover:bg-yellow-300');
+                    button.classList.add('bg-purple-500', 'hover:bg-purple-400');
+                    button.textContent = 'RSVP Confirmed ✓';
+                });
+            }
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((element) => {
+                observer.observe(element);
+            });
+        </script>
+    </body>
+
+</html>

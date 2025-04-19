@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="Celestialslogo.png" type="image/x-icon">
+        <title>Celestials | Bloxfruits Crew</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Twinkling Stars Background */
+            body {
+                background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+                overflow-x: hidden;
+            }
+
+            .stars {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle var(--duration) ease-in-out infinite;
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            /* Existing Animations */
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+
+            .floating {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .nav-link {
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: white;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .feature-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+
+    <body class="min-h-screen">
+        <!-- Twinkling Stars -->
+        <div class="stars" id="stars"></div>
+
+        <!-- Navigation -->
+        <nav class="fixed w-full bg-black/30 backdrop-blur-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <img src="Celestialslogo.png" alt="Celestials Logo"
+                        class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+
+                    <!-- Desktop Navigation Only -->
+                    <div class="flex space-x-8">
+                        <a href="./index.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-home mr-2"></i>
+                        </a>
+                        <a href="./members.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-users mr-2"></i>
+
+                        </a>
+                        <a href="./achievements.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-trophy mr-2"></i>
+
+                        </a>
+                        <a href="./events.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+
+                        </a>
+                        <a href="./shop.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="pt-32 pb-20 px-6 relative z-10">
+            <div class="container mx-auto text-center">
+                <div class="floating mb-12">
+                    <img src="./Celestialslogo.png" alt="Celestials Logo"
+                        class="mx-auto h-40 w-40 rounded-full shadow-xl">
+                </div>
+                <h1 class="text-6xl font-bold text-white mb-8">
+                    CELESTIALS
+                    <span class="text-yellow-400">CREW</span>
+                </h1>
+                <p class="text-xl text-gray-200 mb-12 max-w-2xl mx-auto">
+                    Ascend to greatness in the Bloxfruits universe. Join our elite crew and dominate the seas with
+                    celestial power.
+                </p>
+                <a href="#" class="inline-block">
+                    <button
+                        class="bg-yellow-400 text-purple-900 px-8 py-3 rounded-full font-bold text-lg hover:scale-105 transition-transform hover:shadow-lg">
+                        Join Now
+                    </button>
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <!-- <section class="py-20 bg-white/10 backdrop-blur-sm">
+            <div class="container mx-auto px-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="feature-card fade-in bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-4">Elite Members</h3>
+                        <p class="text-gray-200">Join our community of top-tier players and experienced captains.</p>
+                    </div>
+                    <div class="feature-card fade-in bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-4">Daily Events</h3>
+                        <p class="text-gray-200">Participate in organized sea battles, raids, and training sessions.</p>
+                    </div>
+                    <div class="feature-card fade-in bg-white/5 p-8 rounded-2xl border border-white/10">
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-4">Strategies</h3>
+                        <p class="text-gray-200">Learn advanced combat techniques and game strategies from pros.</p>
+                    </div>
+                </div>
+            </div>
+        </section> -->
+
+        <!-- About Section -->
+        <section class="relative py-20 bg-white/5 backdrop-blur-sm z-10">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto text-center fade-in">
+                    <h2 class="text-4xl font-bold text-white mb-6">
+                        The <span class="text-yellow-400">Celestials</span> Legacy
+                    </h2>
+                    <p class="text-xl text-gray-300 mb-12">
+                        Ascending beyond ordinary piracy to celestial dominance
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    <!-- Left Column -->
+                    <div class="fade-in">
+                        <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+                            <div class="floating mb-8">
+                                <img src="./Celestialslogo.png" alt="Celestials Logo"
+                                    class="mx-auto h-32 w-32 rounded-full border-4 border-yellow-400/30">
+                            </div>
+                            <p class="text-gray-300 mb-3">
+                                Founded in the celestial tides of 2025, the Celestials emerged not just as a
+                                crew—but as
+                                a movement, a legend born beneath the starlit skies of the Grand Line. What began
+                                with a
+                                single ship and a shared dream has transformed into one of the most revered and
+                                feared
+                                forces across the entire Bloxfruits universe.
+                            </p>
+                            <p class="text-gray-300">
+                                Led by the enigmatic and unshakable Zenith and Zarythra, the Celestials embody a
+                                perfect
+                                balance of wisdom, power, and vision. From the very start, their mission was clear:
+                                conquer the uncharted, master the unknown, and ascend beyond mortal limits. This was
+                                not
+                                just about treasure or territory—it was about crafting destiny among the stars.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-8 fade-in">
+                        <!-- Core Values -->
+                        <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-6">Core Principles</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-start">
+                                    <div class="bg-yellow-400/20 p-2 rounded-lg mr-4">
+                                        <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2z">
+                                            </path>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-lg font-semibold text-white mb-2">Celestial Honor</h4>
+                                        <p class="text-gray-300 text-sm">Uphold dignity in victory and grace in
+                                            defeat
+                                        </p>
+                                    </div>
+                                </div>
+                                <!-- Repeat for other values -->
+                            </div>
+                        </div>
+
+                        <!-- Achievements -->
+                        <div class="bg-white/5 p-8 rounded-2xl border border-white/10 hover:bg-white/10 transition-all">
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-6">Celestial Milestones</h3>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div class="text-center p-4 bg-white/5 rounded-lg">
+                                    <div class="text-3xl font-bold text-yellow-400 mb-2">50+</div>
+                                    <div class="text-sm text-gray-300">Island Conquered</div>
+                                </div>
+                                <!-- Repeat for other stats -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CTA -->
+                <div class="text-center mt-16 fade-in">
+                    <a href="./group.htm" class="inline-block px-8 py-4 bg-yellow-400 text-purple-900 rounded-full 
+                            font-bold text-lg hover:bg-yellow-300 transition-colors shadow-lg">
+                        Join the Ascension
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Section -->
+        <section class="py-20 bg-white/10 backdrop-blur-sm relative z-10">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center text-white mb-12">
+                    Crew <span class="text-yellow-400">News</span>
+                </h2>
+
+                <!-- News List Container -->
+                <div class="max-w-4xl mx-auto">
+                    <!-- News Item 1 -->
+                    <div
+                        class="news-item fade-in bg-white/5 p-6 rounded-lg border border-white/10 mb-6 hover:bg-white/10 transition-colors">
+                        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                            <div class="mb-4 md:mb-0">
+                                <div class="flex items-center mb-2">
+                                    <div class="bg-yellow-400/20 p-1.5 rounded-md mr-3">
+                                        <svg class="w-5 h-5 text-yellow-400" fill="none" stroke="currentColor"
+                                            viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                        </svg>
+                                    </div>
+                                    <span class="text-sm text-gray-400">5th February, 2025</span>
+                                </div>
+                                <h3 class="text-2xl font-bold text-yellow-400 mb-2">The Birth of the Celestials - A
+                                    Bloxfruits Crew</h3>
+                                <p class="text-gray-300">On the storm-lashed night of February 5th, 2025, the
+                                    seas of Bloxfruits trembled—not from a raid or a devil fruit awakening, but...
+                                </p>
+                            </div>
+                            <a href="./news.htm"
+                                class="mt-4 md:mt-0 md:ml-6 px-4 py-2 bg-yellow-400/10 text-yellow-400 rounded-lg hover:bg-yellow-400/20 transition-colors whitespace-nowrap self-start md:self-center">
+                                Read More
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-8">
+                    <a href="./news.htm"
+                        class="inline-block px-6 py-3 border border-yellow-400 text-yellow-400 rounded-lg hover:bg-yellow-400 hover:text-purple-900 transition-colors">
+                        View All News
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="bg-black/30 text-gray-300 py-8 mt-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Discord</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Youtube</a>
+                </div>
+                <p class="text-sm">&copy; 2025 Celestials Crew. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Generate stars
+            function createStars() {
+                const starsContainer = document.getElementById('stars');
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            createStars();
+
+            // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((element) => {
+                observer.observe(element);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>

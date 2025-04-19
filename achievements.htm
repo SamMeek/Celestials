@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Celestials Achievements</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="shortcut icon" href="./Celestialslogo.png" type="image/x-icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Star Background */
+            body {
+                background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            }
+
+            .stars {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle var(--duration) ease-in-out infinite;
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            /* Animations */
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+
+            .floating {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            /* Achievement Card Glow */
+            .achievement-card {
+                transition: all 0.3s ease;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .achievement-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            }
+
+            .achievement-card.unlocked {
+                border-left: 4px solid #f59e0b;
+            }
+        </style>
+    </head>
+
+    <body class="min-h-screen">
+        <div class="stars" id="stars"></div>
+
+        <nav class="fixed w-full bg-black/30 backdrop-blur-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <img src="./Celestialslogo.png" alt="Celestials Logo"
+                        class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="./index.htm" class="nav-link text-white text-lg font-medium"><i
+                                class="fas fa-home text-xl mr-2"></i></a>
+                        <a href="./members.htm" class="nav-link text-white text-lg font-medium"><i
+                                class="fas fa-users text-xl mr-2"></i></a>
+                        <a href="./events.htm" class="nav-link text-white text-lg font-medium"><i
+                                class="fas fa-calendar-alt text-xl mr-2"></i></a>
+                        <a href="./shop.htm" class="nav-link text-white text-lg font-medium"><i
+                                class="fas fa-shopping-bag text-xl mr-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <section class="pt-32 pb-20 px-6 relative z-10">
+            <div class="container mx-auto">
+                <h1 class="text-4xl font-bold text-center text-white mb-4 fade-in">
+                    Celestial <span class="text-yellow-400">Achievements</span>
+                </h1>
+                <p class="text-xl text-gray-300 text-center mb-12 max-w-2xl mx-auto fade-in">
+                    Celebrate your victories and milestones in the Bloxfruits universe
+                </p>
+
+                <!-- Achievements Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Achievement 1 -->
+                    <div class="achievement-card fade-in unlocked bg-white/5 p-6 rounded-xl border border-white/10">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-yellow-400/20 p-3 rounded-lg mr-4">
+                                <img src="./Astrav.png" alt="Astrav"
+                                    class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-yellow-400">Astrav</h3>
+                                <p class="text-gray-300 text-sm">5 Celestials Joined to our Crew.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Unlocked: 05/02/2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 2 -->
+                    <div class="achievement-card fade-in unlocked bg-white/5 p-6 rounded-xl border border-white/10">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-yellow-400/20 p-3 rounded-lg mr-4">
+                                <img src="./Dezalyth.png" alt="Dezalyth"
+                                    class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-yellow-400">Dezalyth</h3>
+                                <p class="text-gray-300 text-sm">10 Celestials Joined to our Crew.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-400">Unlocked: 03/04/2025</span>
+                        </div>
+                    </div>
+
+                    <!-- Achievement 3 -->
+                    <div class="achievement-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 opacity-70">
+                        <div class="flex items-start mb-4">
+                            <div class="bg-gray-600/20 p-3 rounded-lg mr-4">
+                                <img src="./Astravene.png" alt="Astravene"
+                                    class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold text-gray-400">Astravene</h3>
+                                <p class="text-gray-500 text-sm">15 Celestials Joined to our Crew.</p>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <span class="text-xs text-gray-500">Locked</span>
+                        </div>
+                    </div>
+
+                    <!-- Add more achievements following same pattern -->
+                </div>
+            </div>
+        </section>
+
+        <script>
+            // Star Generation
+            function createStars() {
+                const starsContainer = document.getElementById('stars');
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+                    starsContainer.appendChild(star);
+                }
+            }
+            createStars();
+
+            // Category Filter
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                btn.addEventListener('click', function () {
+                    document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('bg-yellow-400', 'text-purple-900'));
+                    this.classList.add('bg-yellow-400', 'text-purple-900');
+                    // Filter logic would go here
+                });
+            });
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((element) => {
+                observer.observe(element);
+            });
+        </script>
+    </body>
+
+</html>

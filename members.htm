@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="Celestialslogo.png" type="image/x-icon">
+        <title>Celestials | Bloxfruits Crew</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Twinkling Stars Background */
+            body {
+                background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+                overflow-x: hidden;
+            }
+
+            .stars {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle var(--duration) ease-in-out infinite;
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            /* Existing Animations */
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+
+            .floating {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .nav-link {
+                position: relative;
+                transition: all 0.3s ease;
+            }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                width: 0;
+                height: 2px;
+                bottom: -5px;
+                left: 0;
+                background-color: white;
+                transition: width 0.3s ease;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+            .feature-card {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+
+            .feature-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s ease, transform 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        </style>
+    </head>
+
+    <body class="min-h-screen">
+        <!-- Twinkling Stars -->
+        <div class="stars" id="stars"></div>
+
+        <!-- Navigation -->
+        <nav class="fixed w-full bg-black/30 backdrop-blur-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <img src="./Celestialslogo.png" alt="Celestials Logo"
+                        class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+
+                    <!-- Desktop Navigation Only -->
+                    <div class="flex space-x-8">
+                        <a href="./index.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-home mr-2"></i>
+                        </a>
+                        <a href="./achievements.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-trophy mr-2"></i>
+
+                        </a>
+                        <a href="./events.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-calendar-alt mr-2"></i>
+
+                        </a>
+                        <a href="./shop.htm" class="nav-link text-white text-lg font-medium">
+                            <i class="fas fa-shopping-cart mr-2"></i>
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Members Section -->
+        <section class="pt-32 pb-20 px-6 relative z-10">
+            <div class="container mx-auto">
+                <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in">
+                    Our <span class="text-yellow-400">Elite</span> Members
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-4">
+                    <!-- Member Card 1 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Zenith.png" alt="Captain"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">AnimeAzelYT</h3>
+                        <p class="text-purple-200 font-medium mb-2">Captain</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $2.63M</p>
+                    </div>
+
+                    <!-- Repeat similar structure for other 11 members -->
+                    <!-- Member Card 2 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Zarythra.png" alt="Vice Captain"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">ichhadari_dog</h3>
+                        <p class="text-purple-200 font-medium mb-2">Vice Captain</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $734.42K</p>
+                    </div>
+
+                    <!-- Member Card 3 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Elarion.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Damiarwal</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $2.52M</p>
+                    </div>
+
+                    <!-- Member Card 4 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Orionyx.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">ItzJustMehYTX</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $2.51M</p>
+                    </div>
+
+                    <!-- Member Card 5 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Lioren.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">blakbalablablak5</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $2.51M</p>
+                    </div>
+
+                    <!-- Member Card 6 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Solvyr.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Maxxgrand_bloxfruit</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $2.49M</p>
+                    </div>
+
+                    <!-- Member Card 7 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Arcus.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">PUNYANSH_OP2</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $2.47M</p>
+                    </div>
+
+                    <!-- Member Card 8 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Dravion.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">ItzTheRealPranavYT</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $1.31M</p>
+                    </div>
+
+                    <!-- Member Card 9 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Nyxaris.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">jjdhfhhhhhhfhf</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $978.87K</p>
+                    </div>
+
+                    <!-- Member Card 10 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Zenyra.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Arpitpro647</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $679.95K</p>
+                    </div>
+
+                    <!-- Member Card 11 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Valtor.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Htrdrbeast7</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $448.21K</p>
+                    </div>
+
+                    <!-- Member Card 12 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Astreus.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">TPxGoKuOg07</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $371.41K</p>
+                    </div>
+
+                    <!-- Member Card 13 -->
+                    <div
+                        class="feature-card fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-all">
+                        <div class="relative group">
+                            <img src="./Members/Solrion.png" alt="Elite Member"
+                                class="w-full h-64 object-cover rounded-lg mb-4 hover:scale-105 transition-transform">
+                            <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent rounded-lg">
+                            </div>
+                        </div>
+                        <h3 class="text-2xl font-bold text-yellow-400 mb-2">Nooblvl2600</h3>
+                        <p class="text-purple-200 font-medium mb-2">Elite Member</p>
+                        <p class="text-gray-300 text-sm">Total Bountie : $19.28K</p>
+                    </div>
+
+
+
+
+
+                    <!-- Add remaining member cards following same pattern -->
+                </div>
+            </div>
+        </section>
+
+        <footer class="bg-black/30 text-gray-300 py-8 mt-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Discord</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Instagram</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Youtube</a>
+                </div>
+                <p class="text-sm">&copy; 2025 Celestials Crew. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Generate stars
+            function createStars() {
+                const starsContainer = document.getElementById('stars');
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+                    starsContainer.appendChild(star);
+                }
+            }
+
+            createStars();
+
+            // Intersection Observer for fade-in animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((element) => {
+                observer.observe(element);
+            });
+
+            // Smooth scroll for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+        </script>
+    </body>
+
+</html>

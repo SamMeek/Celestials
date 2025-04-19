@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Celestials News</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        <link rel="shortcut icon" href="Celestialslogo.png" type="image/x-icon">
+        <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Star Background */
+            body {
+                background: radial-gradient(ellipse at bottom, #1B2735 0%, #090A0F 100%);
+            }
+
+            .stars {
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                z-index: 0;
+            }
+
+            .star {
+                position: absolute;
+                background: white;
+                border-radius: 50%;
+                animation: twinkle var(--duration) ease-in-out infinite;
+            }
+
+            @keyframes twinkle {
+
+                0%,
+                100% {
+                    opacity: 0.3;
+                }
+
+                50% {
+                    opacity: 1;
+                }
+            }
+
+            /* Animations */
+            @keyframes float {
+                0% {
+                    transform: translateY(0px);
+                }
+
+                50% {
+                    transform: translateY(-20px);
+                }
+
+                100% {
+                    transform: translateY(0px);
+                }
+            }
+
+            .floating {
+                animation: float 3s ease-in-out infinite;
+            }
+
+            .fade-in {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: all 0.6s ease;
+            }
+
+            .fade-in.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+            .news-item {
+                transition: all 0.3s ease;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            }
+
+            .news-item:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(255, 215, 0, 0.2);
+            }
+        </style>
+    </head>
+
+    <body class="min-h-screen">
+        <div class="stars" id="stars"></div>
+
+        <nav class="fixed w-full bg-black/30 backdrop-blur-md z-50">
+            <div class="container mx-auto px-6 py-4">
+                <div class="flex items-center justify-between">
+                    <img src="./Celestialslogo.png" alt="Celestials Logo"
+                        class="h-12 w-12 rounded-full hover:scale-105 transition-transform">
+                    <div class="hidden md:flex space-x-8">
+                        <a href="./index.htm" class="nav-link text-white text-lg font-medium"><i
+                                class="fas fa-home text-xl mr-2"></i></a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <main class="pt-32 pb-20 px-6 relative z-10">
+            <div class="container mx-auto">
+                <!-- News List -->
+                <div id="news-list" class="max-w-4xl mx-auto">
+                    <h2 class="text-4xl font-bold text-center text-white mb-12 fade-in">
+                        Crew <span class="text-yellow-400">News</span>
+                    </h2>
+
+                    <div class="space-y-8">
+                        <!-- News Item 1 -->
+                        <article
+                            class="news-item fade-in bg-white/5 p-6 rounded-xl border border-white/10 hover:bg-white/10 transition-colors">
+                            <div class="flex items-center mb-4">
+                                <div class="bg-yellow-400/20 p-2 rounded-md mr-4">
+                                    <svg class="w-6 h-6 text-yellow-400" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
+                                    </svg>
+                                </div>
+                                <span class="text-sm text-gray-400">5th February, 2025</span>
+                            </div>
+                            <h3 class="text-2xl font-bold text-yellow-400 mb-2">The Birth of the Celestials - A
+                                Bloxfruits Crew</h3>
+                            <p class="text-gray-300 mb-4">On the storm-lashed night of February 5th, 2025, the
+                                seas of Bloxfruits trembled—not from a raid or a devil fruit awakening, but...</p>
+                            <button onclick="showArticle('article1')"
+                                class="text-yellow-400 hover:text-yellow-300 text-sm font-medium">
+                                Read More →
+                            </button>
+                        </article>
+                    </div>
+                </div>
+
+                <!-- Full Articles -->
+                <div id="full-articles" class="hidden max-w-2xl mx-auto">
+                    <!-- Back Button -->
+                    <button onclick="hideArticle()" class="mb-8 text-gray-400 hover:text-yellow-400 transition-colors">
+                        ← Back to News
+                    </button>
+
+                    <!-- Article 1 -->
+                    <article id="article1" class="hidden">
+                        <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                            <span class="text-sm text-white">5th February, 2025</span>
+                            <h1 class="text-4xl font-bold text-yellow-400 my-6">The Birth of the Celestials - A
+                                Bloxfruits Crew</h1>
+                            <img src="./News/Crew.jpg" alt="Sky Island" class="w-full rounded-lg mb-8">
+                            <div class="prose prose-invert max-w-none">
+                                <p class="text-lg mb-6 text-white">
+                                    On the storm-lashed night of February 5th, 2025, the
+                                    seas of Bloxfruits trembled—not from a raid or a devil fruit awakening, but from the
+                                    rise of a name that would soon echo across all islands: The Celestials.</p>
+                                <p class="text-lg mb-6 text-white">
+                                    Formed by a fearless and enigmatic captain known only
+                                    as AnimeAzelYT aka The Zenith, the crew was born from chaos, ambition, and an
+                                    unshakable dream—to
+                                    rise above the mortal ranks of pirates and carve their names into the stars. But
+                                    even a legend needs a second heartbeat, and that heartbeat came in the form of the
+                                    fiercely loyal and cunning Vice Captain ichhadari_dog aka The Zanythra.</p>
+                                <p class="text-lg mb-6 text-white">
+                                    Once a lone fighter on the outskirts of the Grand Line, Zanythra was infamous
+                                    for his unmatched agility and a dogged will to survive—even when the tides turned.
+                                    He had no crew, no alliances, only his instincts. But when he crossed paths with
+                                    Zenith in the heat of a Sea Beast hunt, something changed. They didn't speak
+                                    much—but they didn't need to. Two warriors, one vision. The sky was no longer the
+                                    limit. It was their battleground.</p>
+                                <p class="text-lg mb-6 text-white">
+                                    The Celestials were not formed for mere power or riches. No—this crew was different.
+                                    Each member was handpicked not for strength alone, but for soul. For resolve. For
+                                    their ability to rise when all else fell. Their symbol, a radiant cosmic 'C', would
+                                    wave on a star-kissed flag—each stroke representing dreams unbound by the sea.</p>
+                                <p class="text-lg mb-6 text-white">
+                                    And so, the Celestials began their journey. From raiding forgotten forts to
+                                    protecting weaker crews from tyrants, they became more than just pirates. They
+                                    became legends in the making. With Zanythra watching the crews back like a
+                                    shadow, and Zenith carving their path forward, the world quickly realized:</p>
+                                <p class="text-lg font-bold mb-6 text-white">
+                                    The sky was no longer safe—because the Celestials had taken flight.</p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- Article 2 -->
+                    <!-- <article id="article2" class="hidden">
+                        <div class="bg-white/5 p-8 rounded-xl border border-white/10">
+                            <span class="text-sm text-gray-400">June 10, 2023</span>
+                            <h1 class="text-4xl font-bold text-yellow-400 my-6">Weekly PvP Tournament</h1>
+                            <img src="tournament.jpg" alt="Tournament" class="w-full rounded-lg mb-8">
+                            <div class="prose prose-invert max-w-none">
+                                <p class="text-lg mb-6">Registration is now open for our weekly Celestial Showdown
+                                    tournament. This week's format features 3v3 team battles with special restrictions:
+                                </p>
+                                <ul class="list-disc pl-6 mb-6">
+                                    <li>No Devil Fruits allowed</li>
+                                    <li>Swords and Haki only</li>
+                                    <li>Best-of-3 elimination</li>
+                                </ul>
+                                <p class="text-lg mb-6">Grand prize includes 2,000,000 Beli and a rare Observation Haki
+                                    manual. Sign up with your team before Friday!</p>
+                            </div>
+                        </div>
+                    </article> -->
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-black/30 text-gray-300 py-8 mt-20">
+            <div class="container mx-auto px-6 text-center">
+                <div class="flex justify-center space-x-6 mb-4">
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Discord</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Twitter</a>
+                    <a href="#" class="hover:text-yellow-400 transition-colors">Roblox Group</a>
+                </div>
+                <p class="text-sm">&copy; 2025 Celestials Crew. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script>
+            // Star Generation
+            function createStars() {
+                const starsContainer = document.getElementById('stars');
+                for (let i = 0; i < 150; i++) {
+                    const star = document.createElement('div');
+                    star.className = 'star';
+                    star.style.left = `${Math.random() * 100}%`;
+                    star.style.top = `${Math.random() * 100}%`;
+                    star.style.width = `${Math.random() * 3}px`;
+                    star.style.height = star.style.width;
+                    star.style.setProperty('--duration', `${2 + Math.random() * 3}s`);
+                    starsContainer.appendChild(star);
+                }
+            }
+            createStars();
+
+            // Article Navigation
+            function showArticle(articleId) {
+                document.getElementById('news-list').classList.add('hidden');
+                document.getElementById('full-articles').classList.remove('hidden');
+                document.querySelectorAll('#full-articles article').forEach(article => {
+                    article.classList.add('hidden');
+                });
+                document.getElementById(articleId).classList.remove('hidden');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            }
+
+            function hideArticle() {
+                document.getElementById('news-list').classList.remove('hidden');
+                document.getElementById('full-articles').classList.add('hidden');
+            }
+
+            // Intersection Observer for animations
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, { threshold: 0.1 });
+
+            document.querySelectorAll('.fade-in').forEach((element) => {
+                observer.observe(element);
+            });
+        </script>
+    </body>
+
+</html>
